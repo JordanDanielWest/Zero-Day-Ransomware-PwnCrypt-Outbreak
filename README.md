@@ -16,7 +16,7 @@
 
 A new ransomware strain named PwnCrypt has been reported in the news, leveraging a PowerShell-based payload to encrypt files on infected systems. The payload, using AES-256 encryption, targets specific directories such as the C:\Users\Public\Desktop, encrypting files and prepending a .pwncrypt extension to the original extension. For example, hello.txt becomes hello.pwncrypt.txt after being targeted with the ransomware. The CISO is concerned with the new ransomware strain being spread to the corporate network and wishes to investigate.
 
-### High-Level TOR-Related IoC Discovery Plan
+### High-Level Ransomware IoC Discovery Plan
 
 - **Check `DeviceFileEvents`** for any files with `pwncrypt`.
 - **Check `DeviceProcessEvents`** to determine delivery method.
