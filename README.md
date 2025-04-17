@@ -1,12 +1,9 @@
 
-<h1 align="center"># Zero-Day-Ransomware-PwnCrypt-Outbreak</h1>
-
-
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b7afca87-3ed2-42cd-b8a1-0a0e21d19d15"
 </p>
 
-# Threat Hunt Report: 
+# Threat Hunt Report:  Zero-Day-Ransomware-PwnCrypt-Outbreak
 - [Scenario Creation](https://github.com/JordanDanielWest/threat-hunting-scenario-tor/blob/main/threat-hunting-scenario-tor-event-creation.md)
 
 ## Platforms and Languages Leveraged
