@@ -1,4 +1,4 @@
-# Zero-Day-Ransomware-PwnCrypt-Outbreak
+:-:# Zero-Day-Ransomware-PwnCrypt-Outbreak
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/b7afca87-3ed2-42cd-b8a1-0a0e21d19d15"
