@@ -1,6 +1,6 @@
 <p align="center">
   
-# Zero-Day-Ransomware-PwnCrypt-Outbreak
+<h1 align="center"># Zero-Day-Ransomware-PwnCrypt-Outbreak</h1>
 
 </p>
 
