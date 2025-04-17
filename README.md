@@ -40,7 +40,7 @@ DeviceFileEvents
 | project Timestamp, DeviceName, ActionType, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessVersionInfoFileDescription
 
 ```
-![image](https://github.com/user-attachments/assets/6fcfd46c-da9d-4c8e-bb00-4936ac0e483c)
+![image](https://github.com/user-attachments/assets/b17333bd-9406-4cbd-88eb-016cf0fd8485)
 
 ---
 
