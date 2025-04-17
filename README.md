@@ -28,6 +28,10 @@ A new ransomware strain named PwnCrypt has been reported in the news, leveraging
 ### 1. Searched the `DeviceFileEvents` Table
 
 I ran a query that revealed several files with the “pwncrypt” extension confirming that the Pwncrypt Ransomware has been run and infected our corporate network.
+Files:
+`1308_EmployeeRecords_pwncrypt.csv`
+`6664_ProjectList_pwncrypt.csv`
+`2669_CompanyFinancials_pwncrypt.csv`
 
 
 **Query used to locate events:**
