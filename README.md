@@ -46,7 +46,7 @@ DeviceFileEvents
 
 ### 2. Searched the `DeviceProcessEvents` Table
 
-I next checked the DeviceProcessEvents table in order to determin how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running -ExecutionPollicy Bypass to avoid execution restrictions from the `ds9-cisco` account.
+I next checked the DeviceProcessEvents table in order to determine how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running -ExecutionPollicy Bypass to avoid execution restrictions from the `ds9-cisco` account.
 
 **Query used to locate event:**
 
