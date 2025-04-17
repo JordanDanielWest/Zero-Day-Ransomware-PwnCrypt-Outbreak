@@ -1,5 +1,5 @@
 
-<h1 align="center"># Threat Hunt Report: Zero-Day-Ransomware-PwnCrypt-Outbreak</h1>
+<h1 align="center"># Zero-Day-Ransomware-PwnCrypt-Outbreak</h1>
 
 
 <p align="center">
