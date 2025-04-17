@@ -62,9 +62,9 @@ Files: `1308_EmployeeRecords_pwncrypt.csv`
 ![image](https://github.com/user-attachments/assets/2542925f-a21c-4154-806a-1e40613a3390)
 
 
-### 2. Searched the `DeviceProcessEvents` Table
+### 3. Searched the `DeviceProcessEvents` Table
 
-I next checked the DeviceProcessEvents table in order to determine how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running -ExecutionPollicy Bypass to avoid execution restrictions from the `ds9-cisco` account.
+I next checked the DeviceProcessEvents table in order to determine how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running -ExecutionPollicy Bypass to avoid execution restrictions.
 
 **Query used to locate event:**
 
@@ -75,44 +75,14 @@ DeviceProcessEvents
 | where FileName endswith "powershell.exe"
 | where ProcessCommandLine contains "pwncrypt.ps1"
 | project Timestamp, ProcessCommandLine, InitiatingProcessCommandLine, InitiatingProcessAccountName
+| where Timestamp >= datetime(2025-04-17T20:14:28.4324263Z)
+| sort by Timestamp desc
 ```
 ![image](https://github.com/user-attachments/assets/3a851f9b-6e23-47fc-b9e9-bb078d67ce15)
 
 
 ---
 
-### 3. Searched the `DeviceProcessEvents` Table for TOR Browser Execution
-
-I searched the DeviceProcessEvents table for any indication that user "ds9-cisco" actually opened the Tor browser. There was evidence that they opened it at this time: 2025-04-14T21:05:30.6659937Z. There were several other instances of ‘firefox.exe’(Tor) as well as ‘tor.exe’ spawned afterwards.
-**Query used to locate events:**
-
-```kql
-DeviceProcessEvents
-| where DeviceName == "edr-machine"
-| where FileName has_any ("tor.exe", "torbrowser.exe", "start-tor-browser.exe", "tor-browser.exe", "firefox.exe", "tor-browser-windows-x86_64-portable-14.0.9.exe")
-| project Timestamp, DeviceName, ActionType, FileName, ProcessCommandLine, FolderPath, SHA256
-| sort by Timestamp desc
-
-```
-![image](https://github.com/user-attachments/assets/e15501c2-18bb-44b6-bc2e-555786bc53d1)
-
-
-### 4. Searched the `DeviceNetworkEvents` Table for TOR Network Connections
-
-Searched the DeviceNetworksEvents table to determine if the Tor browser was used to establish a connection using any of the known Tor ports. On April 14, 2025, at 4:05:53 PM Central Time, the user “ds9-cisco” on device “edr-machine” initiated a successful connection from the Tor Browser's Firefox executable to the local SOCKS proxy at 127.0.0.1:9150. This indicates that the Tor Browser was actively routing traffic through its internal proxy.
-
-**Query used to locate events:**
-
-```kql
-DeDeviceNetworkEvents
-| where DeviceName == "edr-machine"
-| where InitiatingProcessAccountName != "system"
-| where InitiatingProcessFileName in ("tor.exe", "firefox.exe")
-| where RemotePort in ("9001", "9030", "9040", "9050", "9051","9150", "80", "443")
-| project Timestamp, DeviceName, ActionType, RemoteIP, RemotePort, RemoteUrl, InitiatingProcessAccountName, InitiatingProcessFileName, InitiatingProcessFolderPath
-| sort by Timestamp desc
-```
-![image](https://github.com/user-attachments/assets/8f4b15e7-0d26-4c51-8f9d-e9bfbc355ccf)
 
 ---
 
