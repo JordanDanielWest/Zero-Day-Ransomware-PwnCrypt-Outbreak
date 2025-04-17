@@ -1,6 +1,6 @@
 # Zero-Day-Ransomware-PwnCrypt-Outbreak
 
-<img width="400" src="https://github.com/user-attachments/assets/44bac428-01bb-4fe9-9d85-96cba7698bee" alt="Tor Logo with the onion and a crosshair on it"/>
+![image](https://github.com/user-attachments/assets/40caed22-2ff0-41e1-96ff-88921f380d65)
 
 # Threat Hunt Report: Unauthorized TOR Usage
 - [Scenario Creation](https://github.com/JordanDanielWest/threat-hunting-scenario-tor/blob/main/threat-hunting-scenario-tor-event-creation.md)
