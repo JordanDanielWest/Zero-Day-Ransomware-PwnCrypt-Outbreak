@@ -46,17 +46,19 @@ DeviceFileEvents
 
 ### 2. Searched the `DeviceProcessEvents` Table
 
-To determine the delivery method, I examined PowerShell executions on the affected device. This revealed that PowerShell was launched with suspicious command-line arguments including references to pwncrypt and the -ExecutionPolicy Bypass flag from the `ds9-cisco` account.
+I next checked the DeviceProcessEvents table in order to determin how the files were encrypted. I found evidence of cmd execution of powershell running -ExecutionPollicy Bypass to avoid execution restrictions.
+
+   
+
 **Query used to locate event:**
 
 ```kql
 
 DeviceProcessEvents
 | where DeviceName == "edr-machine"
-| where FileName contains "powershell"
-| order by Timestamp desc
-| where ProcessCommandLine has_any ("pwncrypt")
-| project Timestamp, DeviceName, ActionType, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessVersionInfoFileDescription
+| where FileName endswith "powershell.exe"
+| where ProcessCommandLine contains "pwncrypt.ps1"
+| project Timestamp, ProcessCommandLine, InitiatingProcessCommandLine
 ```
 ![image](https://github.com/user-attachments/assets/87b14ba9-2f70-47e6-b178-a3d67a3f96e7)
 
