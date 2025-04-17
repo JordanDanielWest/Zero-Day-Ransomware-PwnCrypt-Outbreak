@@ -83,7 +83,7 @@ DeviceProcessEvents
 ![image](https://github.com/user-attachments/assets/e50340a2-bed0-42bf-95b4-581d12ea59a4)
 
 ---
-Step 4: Identifying the Executing Account
+### 4: Identifying the Executing Account
 
 The initiating process account for the execution of `pwncrypt.ps1` was `SYSTEM`, indicating the script was run with elevated privileges. This suggests it may have been executed via a scheduled task or system-level process. Due to current access limitations, I forwarded my findings to a senior analyst with the appropriate credentials to investigate further.
 
