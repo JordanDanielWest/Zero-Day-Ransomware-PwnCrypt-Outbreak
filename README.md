@@ -27,20 +27,20 @@ A new ransomware strain named PwnCrypt has been reported in the news, leveraging
 
 ### 1. Searched the `DeviceFileEvents` Table
 
-I searched the DeviceFileEvents table for any string with the word ‘tor’ in it and discovered that the user ‘ds9-cisco’ downloaded and installed a tor browser and created several tor related documents on the desktop and created a text file titled “tor-shopping-list.txt” on the desktop at 2025-04-14T21:18:38.2736577Z. These events began at: 2025-04-14T21:01:37.1940431Z
+I ran a query that revealed several files with the “pwncrypt” extension confirming that the Pwncrypt Ransomware has been run and infected our corporate network.
+
 
 **Query used to locate events:**
 
 ```kql
 DeviceFileEvents
-| where FileName contains "tor"
 | where DeviceName == "edr-machine"
-| where InitiatingProcessAccountName == "ds9-cisco"
-| where Timestamp >= datetime(2025-04-14T21:01:37.1940431Z)
-| sort by Timestamp desc
-| project Timestamp, DeviceName, ActionType, FileName, FolderPath, SHA256, Account = InitiatingProcessAccountName
+| where FileName has_any ("pwncrypt")
+| order by Timestamp desc
+| project Timestamp, DeviceName, ActionType, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessVersionInfoFileDescription
+
 ```
-![image](https://github.com/user-attachments/assets/351bd797-4e4e-453b-881e-5c8b4795bced)
+![image](https://github.com/user-attachments/assets/e8981b35-9b3b-4de9-be4c-b97a48a33957)
 
 ---
 
