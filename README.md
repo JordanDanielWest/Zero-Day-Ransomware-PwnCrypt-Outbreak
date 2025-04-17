@@ -46,9 +46,7 @@ DeviceFileEvents
 
 ### 2. Searched the `DeviceProcessEvents` Table
 
-I next checked the DeviceProcessEvents table in order to determin how the files were encrypted. I found evidence of cmd execution of powershell running -ExecutionPollicy Bypass to avoid execution restrictions.
-
-   
+I next checked the DeviceProcessEvents table in order to determin how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running -ExecutionPollicy Bypass to avoid execution restrictions from the `ds9-cisco` account.
 
 **Query used to locate event:**
 
@@ -58,9 +56,10 @@ DeviceProcessEvents
 | where DeviceName == "edr-machine"
 | where FileName endswith "powershell.exe"
 | where ProcessCommandLine contains "pwncrypt.ps1"
-| project Timestamp, ProcessCommandLine, InitiatingProcessCommandLine
+| project Timestamp, ProcessCommandLine, InitiatingProcessCommandLine, InitiatingProcessAccountName
 ```
-![image](https://github.com/user-attachments/assets/87b14ba9-2f70-47e6-b178-a3d67a3f96e7)
+![image](https://github.com/user-attachments/assets/3a851f9b-6e23-47fc-b9e9-bb078d67ce15)
+
 
 ---
 
