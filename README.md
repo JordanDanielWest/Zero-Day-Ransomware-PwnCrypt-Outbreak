@@ -46,19 +46,19 @@ DeviceFileEvents
 
 ### 2. Searched the `DeviceProcessEvents` Table
 
-I searched the DeviceProcessEvents table for any ProcessCommandLine that contained the string ‘tor-browser-windows-x86_64-portable-14.0.9.exe’. Based on the logs returned on April 14, 2025, at 4:04:58 PM Central Time, the user "ds9-cisco" on device "edr-machine" silently executed the file tor-browser-windows-x86_64-portable-14.0.9.exe from the Downloads folder. The SHA-256 hash of the file is af243ca521ac0f02b21082dcbe1e6e87dc575797baf6e970530b6c0d1bfd5384, which matches the official hash provided by the Tor Project for this version, confirming its authenticity.
-
+To determine the delivery method, I examined PowerShell executions on the affected device. This revealed that PowerShell was launched with suspicious command-line arguments including references to pwncrypt and the -ExecutionPolicy Bypass flag from the `ds9-cisco` account.
 **Query used to locate event:**
 
 ```kql
 
 DeviceProcessEvents
 | where DeviceName == "edr-machine"
-| where ProcessCommandLine contains "tor-browser-windows-x86_64-portable-14.0.9.exe"
-| project Timestamp, DeviceName, ActionType, FileName, FolderPath, SHA256, Account = InitiatingProcessAccountName, ProcessCommandLine
+| where FileName contains "powershell"
+| order by Timestamp desc
+| where ProcessCommandLine has_any ("pwncrypt")
+| project Timestamp, DeviceName, ActionType, FileName, FolderPath, InitiatingProcessAccountName, InitiatingProcessVersionInfoFileDescription
 ```
-![image](https://github.com/user-attachments/assets/8a68b6f8-5ccf-434e-a9d6-382a96c9c206)
-
+![image](https://github.com/user-attachments/assets/87b14ba9-2f70-47e6-b178-a3d67a3f96e7)
 
 ---
 
