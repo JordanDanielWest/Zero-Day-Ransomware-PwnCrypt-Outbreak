@@ -61,14 +61,6 @@ DeviceFileEvents
 ![image](https://github.com/user-attachments/assets/2542925f-a21c-4154-806a-1e40613a3390)
 ![image](https://github.com/user-attachments/assets/236da8c4-50dd-41db-8d8e-6647e9c8c868)
 
-
-
-
-
-
-
-
-
 ### 3. Searched the `DeviceProcessEvents` Table
 
 I next checked the DeviceProcessEvents table in order to determine how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running 
@@ -90,10 +82,10 @@ DeviceProcessEvents
 ```
 ![image](https://github.com/user-attachments/assets/e50340a2-bed0-42bf-95b4-581d12ea59a4)
 
-
-
 ---
+Step 4: Identifying the Executing Account
 
+The initiating process account for the execution of `pwncrypt.ps1` was `SYSTEM`, indicating the script was run with elevated privileges. This suggests it may have been executed via a scheduled task or system-level process. Due to current access limitations, I forwarded my findings to a senior analyst with the appropriate credentials to investigate further.
 
 ---
 
