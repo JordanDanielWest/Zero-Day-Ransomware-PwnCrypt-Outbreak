@@ -1,7 +1,8 @@
 # Zero-Day-Ransomware-PwnCrypt-Outbreak
 
-![image](https://github.com/user-attachments/assets/b7afca87-3ed2-42cd-b8a1-0a0e21d19d15)
-
+<p align="center">
+  ![image](https://github.com/user-attachments/assets/b7afca87-3ed2-42cd-b8a1-0a0e21d19d15)
+</p>
 
 # Threat Hunt Report: Unauthorized TOR Usage
 - [Scenario Creation](https://github.com/JordanDanielWest/threat-hunting-scenario-tor/blob/main/threat-hunting-scenario-tor-event-creation.md)
