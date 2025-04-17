@@ -63,6 +63,7 @@ DeviceFileEvents
 | where Timestamp >= datetime(2025-04-17T20:14:28.4324263Z)
 ```
 ![image](https://github.com/user-attachments/assets/2542925f-a21c-4154-806a-1e40613a3390)
+![image](https://github.com/user-attachments/assets/236da8c4-50dd-41db-8d8e-6647e9c8c868)
 
 
 
