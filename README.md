@@ -1,7 +1,7 @@
 # Zero-Day-Ransomware-PwnCrypt-Outbreak
 
 <p align="center">
-  ![image](https://github.com/user-attachments/assets/b7afca87-3ed2-42cd-b8a1-0a0e21d19d15)
+  <img src="https://github.com/user-attachments/assets/b7afca87-3ed2-42cd-b8a1-0a0e21d19d15"
 </p>
 
 # Threat Hunt Report: Unauthorized TOR Usage
