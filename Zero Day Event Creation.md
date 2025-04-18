@@ -40,29 +40,19 @@
 
 ## Related Queries:
 ```kql
-// Look for any kind of archive activity
-let archive_applications = dynamic(["winrar.exe", "7z.exe", "winzip32.exe", "peazip.exe", "Bandizip.exe", "UniExtract.exe", "POWERARC.EXE", "IZArc.exe", "AshampooZIP.exe", "FreeArc.exe"]);
-let VMName = "windows-target-1";
-DeviceProcessEvents
-| where FileName has_any(archive_applications)
-| order by Timestamp desc
-
-
-// Look for any file activity, based on the Timestamp from any discovered process activity
-let specificTime = datetime(2024-10-15T19:00:48.5615171Z);
+// Search the FileEvents table for the IoCs described in the briefing
 let VMName = "windows-target-1";
 DeviceFileEvents
-| where Timestamp between ((specificTime - 1m) .. (specificTime + 1m))
 | where DeviceName == VMName
+| where FileName contains ".pwncrypt"
 | order by Timestamp desc
 
-
-// Look for any network activity, based on the Timestamp from the process or file activity
+// Search the DeviceProcessEvents table for logs around the same time
 let VMName = "windows-target-1";
-let specificTime = datetime(2024-10-15T19:00:48.5615171Z);
-DeviceNetworkEvents
-| where Timestamp between ((specificTime - 2m) .. (specificTime + 2m))
+let specificTime = datetime(2024-10-16T05:24:46.8334943Z);
+DeviceProcessEvents
 | where DeviceName == VMName
+| where Timestamp between ((specificTime - 3m) .. (specificTime + 3m))
 | order by Timestamp desc
 
 
@@ -90,7 +80,6 @@ DeviceNetworkEvents
 ## Revision History:
 | **Version** | **Changes**                   | **Date**         | **Modified By**   |
 |-------------|-------------------------------|------------------|-------------------|
-| 1.0         | Initial Draft                 |`September 6, 2024`| `Josh Madakor` |
-| 2.0         | Updated draft                 | `April 16, 2025`  | `Jordan West`   |
+| 2.0         | Initial draft                 | `April 16, 2025`  | `Jordan West`   |
 
 
