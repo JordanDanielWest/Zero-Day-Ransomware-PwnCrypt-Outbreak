@@ -143,6 +143,6 @@ At 2025-04-17T20:14:28.4324263Z, the system executed a malicious PowerShell scri
 
 ## Response Taken
 
-TOR usage was confirmed on the endpoint `edr-machine` by the user `ds9-cisco`. The device was isolated, and the user's direct manager was notified.
+Pwncrypt-encrypted files were discovered on the corporate network, prompting an immediate investigation to determine the source and scope of the incident. Analysis of endpoint telemetry revealed a malicious PowerShell command was executed under the SYSTEM account on the host edr-machine. There was no indication of lateral movement, persistence mechanisms, or communication with an external command and control server. Due to access limitations, the incident was escalated to senior analysts for further review. Remediation actions included isolating the affected system, removing the malicious script, and restoring affected files from backups.
 
----# threat-hunting-scenario-tor
+
