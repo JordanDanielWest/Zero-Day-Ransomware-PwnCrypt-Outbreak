@@ -138,8 +138,7 @@ DeviceNetworkEvents
 
 ## Summary
 
-The user "ds9-cisco" on the "edr-machine" device initiated and completed the installation of the TOR browser. They proceeded to launch the browser, establish connections within the TOR network, and created various files related to TOR on their desktop, including a file named `tor-shopping-list.txt`. This sequence of activities indicates that the user actively installed, configured, and used the TOR browser, likely for anonymous browsing purposes, with possible documentation in the form of the "shopping list" file.
-
+At 2025-04-17T20:14:28.4324263Z, the system executed a malicious PowerShell script using the SYSTEM account. The command bypassed execution policy restrictions and used Invoke-WebRequest to download a ransomware payload named pwncrypt.ps1 from a public GitHub repository, saving it to C:\programdata\pwncrypt.ps1. Immediately after, the script was executed, initiating the ransomware behavior. As a result, several files were encrypted and renamed with a .pwncrypt extension. Specifically, the files 1308_EmployeeRecords_pwncrypt.csv, 6664_ProjectList_pwncrypt.csv, and 2669_CompanyFinancials_pwncrypt.csv were created. There was no evidence of further command and control communication, data exfiltration, or persistent mechanisms beyond this activity. The attack was contained to local file encryption initiated by the executed script.
 ---
 
 ## Response Taken
