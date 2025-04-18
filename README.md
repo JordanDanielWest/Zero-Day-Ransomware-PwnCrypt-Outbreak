@@ -89,6 +89,21 @@ The initiating process account for the execution of `pwncrypt.ps1` was `SYSTEM`,
 
 ---
 
+### 5: Checked for Malicious Persistence Mechanisms
+
+I ran a query to determine whether any malicious persistence mechanisms were installed on the system (e.g., via schtasks or sc.exe). The results showed several instances of sc.exe, but all were related to legitimate service starts such as the Windows Time Service. No evidence of malicious scheduled tasks or services was found.
+
+```kql
+DeviceProcessEvents
+| where DeviceName == "edr-machine"
+| where ProcessCommandLine has_any ("schtasks", "Schedule", "Task")
+| sort by Timestamp desc
+```
+![image](https://github.com/user-attachments/assets/1eaf3df0-d6be-46c6-9729-9a0b528cb6dd)
+
+---
+
+---
 ## Chronological Event Timeline 
 
 ### 1. File Download - TOR Installer
