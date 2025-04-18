@@ -127,13 +127,12 @@ DeviceNetworkEvents
 - **Process Path:** `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
 - **Command:** `powershell.exe -ExecutionPolicy Bypass -File C:\Users\Public\Downloads\pwncrypt.ps1`
 
-### 2. Process Execution - TOR Browser Installation
+### 2. File Creation - Encrypted Files (pwncrypt.csv)
 
-- **Timestamp:** `2025-04-14T21:04:58.6035812Z`
-- **Event:** The user "ds9-cisco" executed the file `tor-browser-windows-x86_64-portable-14.0.9.exe` in silent mode, initiating a background installation of the TOR Browser.
-- **Action:** Process creation detected.
-- **Command:** `tor-browser-windows-x86_64-portable-14.0.9.exe /S`
-- **File Path:** `C:\Users\DS9-CISCO\Downloads\tor-browser-windows-x86_64-portable-14.0.9.exe`
+- **Timestamp:** `2025-04-17T20:14:32.2519605Z`
+- **Event:** The `pwncrypt.ps1` script executed successfully, generating three encrypted files on `edr-machine`.
+- **Action:** Files created by the script.
+- **File Path:** `C:\Users\Public\Documents\1308_EmployeeRecords_pwncrypt.csv`, `C:\Users\Public\Documents\6664_ProjectList_pwncrypt.csv`, `C:\Users\Public\Documents\2669_CompanyFinancials_pwncrypt.csv`
 
 ### 3. Process Execution - TOR Browser Launch
 
