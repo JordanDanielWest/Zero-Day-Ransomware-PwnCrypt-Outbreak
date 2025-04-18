@@ -92,7 +92,7 @@ The initiating process account for the execution of `pwncrypt.ps1` was `SYSTEM`,
 ### 5: Checked for Malicious Persistence Mechanisms
 
 I ran a query to determine whether any malicious persistence mechanisms were installed on the system (e.g., via schtasks or sc.exe). The results showed several instances of sc.exe, but all were related to legitimate service starts such as the Windows Time Service. No evidence of malicious scheduled tasks or services was found.
-
+**Query used to locate event:**
 ```kql
 DeviceProcessEvents
 | where DeviceName == "edr-machine"
@@ -102,7 +102,16 @@ DeviceProcessEvents
 ![image](https://github.com/user-attachments/assets/1eaf3df0-d6be-46c6-9729-9a0b528cb6dd)
 
 ---
+### 6: Investigated Network Traffic for C2 Communication
 
+I ran a query to check for any suspicious or malicious traffic coming from the target machine that could indicate communication with a Command and Control (C2) server. No suspicious traffic was detected.
+**Query used to locate event:**
+```kql
+DeviceNetworkEvents
+| where DeviceName == "edr-machine"
+| where RemoteUrl has_any ("pwncrypt", "ransomware", "malicious")
+| sort by Timestamp desc
+```
 ---
 ## Chronological Event Timeline 
 
