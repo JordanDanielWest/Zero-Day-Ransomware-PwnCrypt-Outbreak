@@ -134,36 +134,6 @@ DeviceNetworkEvents
 - **Action:** Files created by the script.
 - **File Path:** `C:\Users\Public\Documents\1308_EmployeeRecords_pwncrypt.csv`, `C:\Users\Public\Documents\6664_ProjectList_pwncrypt.csv`, `C:\Users\Public\Documents\2669_CompanyFinancials_pwncrypt.csv`
 
-### 3. Process Execution - TOR Browser Launch
-
-- **Timestamp:** `2025-04-14T21:05:30.6659937Z`
-- **Event:** User "ds9-cisco" opened the TOR browser. Subsequent processes associated with TOR browser, such as `firefox.exe` and `tor.exe`, were also created, indicating that the browser launched successfully.
-- **Action:** Process creation of TOR browser-related executables detected.
-- **File Path:** `C:\Users\DS9-CISCO\Desktop\Tor Browser\Browser\TorBrowser\Tor\tor.exe`
-
-### 4. Network Connection - TOR Network
-
-- **Timestamp:** `2025-04-14T21:05:38.1904337Z`
-- **Event:** A network connection to IP `194.147.140.107` on port `443` by user "ds9-cisco" was established using `tor.exe`, confirming TOR browser network activity.
-- **Action:** Connection success.
-- **Process:** `tor.exe`
-- **File Path:** `c:\users\ds9-cisco\desktop\tor browser\browser\torbrowser\tor\tor.exe`
-
-### 5. Additional Network Connections - TOR Browser Activity
-
-- **Timestamps:**
-  - `2025-04-14T21:05:40.7830533Z` - Connected to `116.12.180.234` on port `443`.
-  - `2025-04-14T21:06:46.2718388Z` - Local connection to `194.147.140.107` on port `443`.
-- **Event:** Additional TOR network connections were established, indicating ongoing activity by user "ds9-cisco" through the TOR browser.
-- **Action:** Multiple successful connections detected.
-
-### 6. File Creation - TOR Shopping List
-
-- **Timestamp:** `2025-04-14T21:18:38.2736577Z`
-- **Event:** The user "ds9-cisco" created a file named `tor-shopping-list.txt` on the desktop, potentially indicating a list or notes related to their TOR browser activities.
-- **Action:** File creation detected.
-- **File Path:** `C:\Users\DS9-CISCO\Desktop\tor-shopping-list.txt`
-
 ---
 
 ## Summary
