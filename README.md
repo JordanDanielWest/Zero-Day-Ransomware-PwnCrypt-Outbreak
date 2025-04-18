@@ -143,6 +143,6 @@ At Apr 17, 2025 3:14:28 PM, the system executed a malicious PowerShell script us
 
 ## Response Taken
 
-Pwncrypt-encrypted files were discovered on the corporate network, prompting an immediate investigation to determine the source and scope of the incident. Analysis of endpoint telemetry revealed a malicious PowerShell command was executed under the SYSTEM account on the host edr-machine. There was no indication of lateral movement, persistence mechanisms, or communication with an external command and control server. Due to access limitations, the incident was escalated to senior analysts for further review. Remediation actions included isolating the affected system, removing the malicious script, and restoring affected files from backups.
+Pwncrypt-encrypted files were discovered on the corporate network, prompting an immediate investigation to determine the source and scope of the incident. Analysis of endpoint telemetry revealed a malicious PowerShell command was executed under the `SYSTEM` account on the host `edr-machine`. There was no indication of lateral movement, persistence mechanisms, or communication with an external command and control server. Due to access limitations, the incident was escalated to senior analysts for further review. Remediation actions included isolating the affected system, removing the malicious script, and restoring affected files from backups.
 
 
