@@ -18,8 +18,8 @@ A new ransomware strain named PwnCrypt has been reported in the news, leveraging
 ### High-Level Ransomware IoC Discovery Plan
 
 - **Check `DeviceFileEvents`** for any files with `pwncrypt`.
-- **Check `DeviceProcessEvents`** to determine delivery method.
-
+- **Check `DeviceProcessEvents`** to determine delivery method and identify persistent malicious mechanisms.
+- **Check `DeviceNetworkEvents` to identify if there is any communication with a C2 server.
 ---
 
 ## Steps Taken
