@@ -26,7 +26,7 @@ A new ransomware strain named PwnCrypt has been reported in the news, leveraging
 
 ### 1. Searched the `DeviceFileEvents` Table
 
-I ran a query in DeviceFileEvents that revealed a file named `pwncrypt.ps1` created at `2025-04-17T20:14:28.4324263Z` confirming that the Pwncrypt Ransomware has been run and infected our corporate network.
+I ran a query in DeviceFileEvents that revealed a file named `pwncrypt.ps1` created at `2025-04-17T20:14:28.4324263Z` confirming that the Pwncrypt Ransomware has infected our corporate network.
 
 Folder Path: `C:\ProgramData\pwncrypt.ps1`
 
