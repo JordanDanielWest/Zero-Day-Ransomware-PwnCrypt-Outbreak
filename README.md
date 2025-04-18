@@ -118,12 +118,14 @@ DeviceNetworkEvents
 ---
 ## Chronological Event Timeline 
 
-### 1. File Download - TOR Installer
+### 1. Script Execution - PwnCrypt Script (pwncrypt.ps1)
 
-- **Timestamp:** `2025-04-14T21:01:37.1940431Z`
-- **Event:** The user "ds9-cisco" downloaded a file named `tor-browser-windows-x86_64-portable-14.0.9.exe` to the Downloads folder.
-- **Action:** File download detected.
-- **File Path:** `C:\Users\DS9-CISCO\Downloads\tor-browser-windows-x86_64-portable-14.0.9.exe`
+- **Timestamp:** `2025-04-17T20:14:28.4324263Z`
+- **Event:** The `SYSTEM` account executed the `pwncrypt.ps1` script on `edr-machine`, triggering a download from an external source.
+- **Action:** `pwncrypt.ps1` downloaded from an external GitHub repository and executed on the machine.
+- **File Path:** `C:\Users\Public\Downloads\pwncrypt.ps1`
+- **Process Path:** `C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe`
+- **Command:** `powershell.exe -ExecutionPolicy Bypass -File C:\Users\Public\Downloads\pwncrypt.ps1`
 
 ### 2. Process Execution - TOR Browser Installation
 
