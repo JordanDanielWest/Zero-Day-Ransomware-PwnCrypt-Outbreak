@@ -14,7 +14,7 @@
     Executes the downloaded script:
     It then uses cmd to launch PowerShell with execution policy bypassed, running the downloaded pwncrypt.ps1 script.
 
-This allows the script to run without user confirmation or policy restrictions, simulating how a malicious payload might be delivered and executed during a cyberattack scenario.
+This allows the script to run without user confirmation or policy restrictions, simulating how a malicious payload might be delivered and executed during a cyberattack scenario.  Intended for use in controlled environments only.
 ---
 
 ## Tables Used to Detect IoCs:
