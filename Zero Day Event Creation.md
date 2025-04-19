@@ -56,7 +56,7 @@ DeviceProcessEvents
 | where Timestamp between ((specificTime - 3m) .. (specificTime + 3m))
 | order by Timestamp desc
 
-// Search the DeviceNetworkEvents table to look for any suspicous network traffic.
+// Search the DeviceNetworkEvents table to look for any suspicous network traffic
 DeviceNetworkEvents
 | where DeviceName == "edr-machine"
 | where RemoteUrl has_any ("pwncrypt", "ransomware", "malicious")
