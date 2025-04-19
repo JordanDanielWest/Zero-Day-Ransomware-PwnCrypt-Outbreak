@@ -18,23 +18,24 @@
 ---
 
 ## Tables Used to Detect IoCs:
-| **Parameter**       | **Description**                                                              |
-|---------------------|------------------------------------------------------------------------------|
-| **Name**| DeviceProcessEvents|
-| **Info**|https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceinfo-table|
-| **Purpose**| Used for detection of archival software execution. |
 
 | **Parameter**       | **Description**                                                              |
 |---------------------|------------------------------------------------------------------------------|
 | **Name**| DeviceFileEvents|
 | **Info**|https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceinfo-table|
-| **Purpose**| Used to detect the silent installation of 7zip as well as execution of exfiltratedata.ps1 powershell script.|
+| **Purpose**| Used to detect for any files with `pwncrypt`.|
+
+| **Parameter**       | **Description**                                                              |
+|---------------------|------------------------------------------------------------------------------|
+| **Name**| DeviceProcessEvents|
+| **Info**|https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceinfo-table|
+| **Purpose**| Used to determine delivery method and identify persistent malicious mechanisms. |
 
 | **Parameter**       | **Description**                                                              |
 |---------------------|------------------------------------------------------------------------------|
 | **Name**| DeviceNetworkEvents|
 | **Info**|https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-devicenetworkevents-table|
-| **Purpose**| Used to determine if any data has been exfiltrated from the network.|
+| **Purpose**| Used to identify if there is any communication with a C2 server.|
 
 ---
 
