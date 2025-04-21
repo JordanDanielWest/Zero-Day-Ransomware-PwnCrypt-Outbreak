@@ -144,11 +144,6 @@ Pwncrypt-encrypted files were discovered on the corporate network, prompting an 
   **ID:** T1486  
   **Description:** Files were encrypted using AES-256 and renamed with the `.pwncrypt` extension.
 
-### Command and Control (Attempted)
-- **Technique:** Application Layer Protocol: Web Protocols  
-  **ID:** T1071.001  
-  **Description:** PowerShell was used to download a payload via HTTP from GitHub using `Invoke-WebRequest`.
-
 
 
 ---
