@@ -115,6 +115,43 @@ DeviceNetworkEvents
 | sort by Timestamp desc
 ```
 ---
+## Response Taken
+
+Pwncrypt-encrypted files were discovered on the corporate network, prompting an immediate investigation to determine the source and scope of the incident. Analysis of endpoint telemetry revealed a malicious PowerShell command was executed under the `SYSTEM` account on the host `edr-machine`. There was no indication of lateral movement, persistence mechanisms, or communication with an external command and control server. Due to access limitations, the incident was escalated to senior analysts for further review. Remediation actions included isolating the affected system, removing the malicious script, and restoring affected files from backups.
+
+## MITRE ATT&CK TTPs Identified
+
+### Execution
+- **Technique:** PowerShell  
+  **ID:** T1059.001  
+  **Description:** PowerShell was used to download and execute a malicious script (`pwncrypt.ps1`) using `-ExecutionPolicy Bypass`.
+
+- **Technique:** Command and Scripting Interpreter  
+  **ID:** T1059  
+  **Description:** The attacker utilized PowerShell to interpret and execute script commands.
+
+### Defense Evasion
+- **Technique:** Bypass User Account Control  
+  **ID:** T1548.002  
+  **Description:** PowerShell was executed with `-ExecutionPolicy Bypass` to evade execution policy controls.
+
+- **Technique:** Masquerading  
+  **ID:** T1036  
+  **Description:** The script and encrypted files were placed in legitimate-looking system folders (`C:\ProgramData`, `C:\Users\Public`) to appear benign.
+
+### Impact
+- **Technique:** Data Encrypted for Impact  
+  **ID:** T1486  
+  **Description:** Files were encrypted using AES-256 and renamed with the `.pwncrypt` extension.
+
+### Command and Control (Attempted)
+- **Technique:** Application Layer Protocol: Web Protocols  
+  **ID:** T1071.001  
+  **Description:** PowerShell was used to download a payload via HTTP from GitHub using `Invoke-WebRequest`.
+
+
+
+---
 ## Chronological Event Timeline 
 
 ### 1. Script Execution - PwnCrypt Script (pwncrypt.ps1)
@@ -141,8 +178,5 @@ At Apr 17, 2025 3:14:28 PM, the system executed a malicious PowerShell script us
 
 ---
 
-## Response Taken
-
-Pwncrypt-encrypted files were discovered on the corporate network, prompting an immediate investigation to determine the source and scope of the incident. Analysis of endpoint telemetry revealed a malicious PowerShell command was executed under the `SYSTEM` account on the host `edr-machine`. There was no indication of lateral movement, persistence mechanisms, or communication with an external command and control server. Due to access limitations, the incident was escalated to senior analysts for further review. Remediation actions included isolating the affected system, removing the malicious script, and restoring affected files from backups.
 
 
